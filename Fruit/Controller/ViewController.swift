@@ -15,10 +15,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var fruitArray = [Fruit]()
     var arrayOfFruitDictionaries = [Dictionary<String, Any>] ()
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
+ 
         tableView.delegate = self
-        tableView.dataSource = self 
+        tableView.dataSource = self
         
         guard let url = URL(string: "https://raw.githubusercontent.com/fmtvp/recruit-test-data/master/data.json") else {
             return
@@ -33,7 +35,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     
                     self.arrayOfFruitDictionaries = root["fruit"]!
                     self.fruitArray = self.makeArrayOfFruitObjects(self.arrayOfFruitDictionaries)
-                    print(self.fruitArray)
+                    print(self.fruitArray.count)
+                    
+                    
+                    
+                    DispatchQueue.main.async{
+
+                        self.tableView.reloadData()
+                    }
                     
                 } catch {
                     print(error)
@@ -42,15 +51,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         session.resume()
         
-        DispatchQueue.main.async{
-            self.tableView.reloadData()
-        }
 
-        
-        
     }
-    /* iterates through the array of fruit dictionaries, creates and initalises a fruit object
-     on each iteration, then appends each newly created object to an array */
+    /* iterates through the array of fruit dictionaries, creates and initalises a fruit object on each iteration, then appends each newly created object to an array */
     func makeArrayOfFruitObjects (_ arrayOfFruitDictionaries: [Dictionary<String, Any>]) -> [Fruit] {
         var _fruitArray = [Fruit]()
         
@@ -78,8 +81,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.arrayOfFruitDictionaries.count
+        return self.fruitArray.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
 }
 

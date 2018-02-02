@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,14 +29,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AdZ-Sv-zBf">
-                                                    <rect key="frame" x="18" y="11" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="152" y="5.5" width="71.5" height="33.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="AdZ-Sv-zBf" firstAttribute="leading" secondItem="5Fc-he-fAt" secondAttribute="leadingMargin" constant="10" id="mHU-V7-Qwk"/>
+                                                <constraint firstItem="AdZ-Sv-zBf" firstAttribute="centerX" secondItem="5Fc-he-fAt" secondAttribute="centerX" id="mmM-M7-PNK"/>
                                                 <constraint firstItem="AdZ-Sv-zBf" firstAttribute="centerY" secondItem="5Fc-he-fAt" secondAttribute="centerY" id="mrK-S2-oSr"/>
                                             </constraints>
                                         </tableViewCellContentView>
