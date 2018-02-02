@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    private var _fruit: Fruit!
     var fruitArray = [Fruit]()
     var arrayOfFruitDictionaries = [Dictionary<String, Any>] ()
     
@@ -37,10 +36,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     self.fruitArray = self.makeArrayOfFruitObjects(self.arrayOfFruitDictionaries)
                     print(self.fruitArray.count)
                     
-                    
-                    
                     DispatchQueue.main.async{
-
                         self.tableView.reloadData()
                     }
                     
@@ -53,7 +49,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
 
     }
-    /* iterates through the array of fruit dictionaries, creates and initalises a fruit object on each iteration, then appends each newly created object to an array */
+    /* iterates through the array of fruit dictionaries, creates and initalises a fruit object on each iteration, then appends each newly created object to an array of type fruit */
     func makeArrayOfFruitObjects (_ arrayOfFruitDictionaries: [Dictionary<String, Any>]) -> [Fruit] {
         var _fruitArray = [Fruit]()
         

@@ -26,15 +26,7 @@ class Fruit: NSObject {
     var weight: Int {
         return _weight
     }
-    
-//    init( type: String, price: Int, weight: Int) {
-//        
-//        _type = type
-//        _price = price
-//        _weight = weight
-//        
-//    }
-    
+
     init(initialiseFruitWith dict: Dictionary<String, Any>) {
 
         _type = dict["type"] as! String
