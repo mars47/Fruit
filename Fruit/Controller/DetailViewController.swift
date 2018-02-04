@@ -9,27 +9,29 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    private var _fruit: Fruit!
+    
+    var fruit: Fruit {
+        
+        get {
+            return _fruit
+        } set {
+            _fruit = newValue
+        }
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+         titleLabel.text = fruit.type
+         priceLabel.text = String (fruit.price)
+         weightLabel.text = String (fruit.weight)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

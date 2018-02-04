@@ -65,12 +65,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    func  tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       let fruit = fruitArray[indexPath.row]
+       // performSegue(withIdentifier: "showDetail", sender: fruit)
+        performSegue(withIdentifier: "show", sender: fruit)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.fruitArray.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        
+        if let destination = segue.destination as? DetailViewController {
+            if let party = sender as? Fruit {
+                destination.fruit = party
+            }
+        }
     }
 }
 
