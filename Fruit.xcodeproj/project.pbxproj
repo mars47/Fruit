@@ -14,8 +14,6 @@
 		075A05632021266200A8324A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 075A05612021266200A8324A /* Main.storyboard */; };
 		075A05652021266200A8324A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 075A05642021266200A8324A /* Assets.xcassets */; };
 		075A05682021266200A8324A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 075A05662021266200A8324A /* LaunchScreen.storyboard */; };
-		075A05732021266200A8324A /* FruitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075A05722021266200A8324A /* FruitTests.swift */; };
-		075A057E2021266200A8324A /* FruitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075A057D2021266200A8324A /* FruitUITests.swift */; };
 		07E3D3EA2022A2710059102A /* infoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3D3E92022A2710059102A /* infoTableViewCell.swift */; };
 		07E3D3EC2022A2B70059102A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3D3EB2022A2B70059102A /* DetailViewController.swift */; };
 		07E3D3EE2022E25C0059102A /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3D3ED2022E25C0059102A /* Fruit.swift */; };
@@ -49,11 +47,7 @@
 		075A05672021266200A8324A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		075A05692021266200A8324A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		075A056E2021266200A8324A /* FruitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FruitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		075A05722021266200A8324A /* FruitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitTests.swift; sourceTree = "<group>"; };
-		075A05742021266200A8324A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		075A05792021266200A8324A /* FruitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FruitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		075A057D2021266200A8324A /* FruitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitUITests.swift; sourceTree = "<group>"; };
-		075A057F2021266200A8324A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07E3D3E92022A2710059102A /* infoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoTableViewCell.swift; sourceTree = "<group>"; };
 		07E3D3EB2022A2B70059102A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		07E3D3ED2022E25C0059102A /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
@@ -88,8 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				075A055C2021266200A8324A /* Fruit */,
-				075A05712021266200A8324A /* FruitTests */,
-				075A057C2021266200A8324A /* FruitUITests */,
 				075A055B2021266200A8324A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,24 +109,6 @@
 				075A05692021266200A8324A /* Info.plist */,
 			);
 			path = Fruit;
-			sourceTree = "<group>";
-		};
-		075A05712021266200A8324A /* FruitTests */ = {
-			isa = PBXGroup;
-			children = (
-				075A05722021266200A8324A /* FruitTests.swift */,
-				075A05742021266200A8324A /* Info.plist */,
-			);
-			path = FruitTests;
-			sourceTree = "<group>";
-		};
-		075A057C2021266200A8324A /* FruitUITests */ = {
-			isa = PBXGroup;
-			children = (
-				075A057D2021266200A8324A /* FruitUITests.swift */,
-				075A057F2021266200A8324A /* Info.plist */,
-			);
-			path = FruitUITests;
 			sourceTree = "<group>";
 		};
 		075A058B20229E5D00A8324A /* Controller */ = {
@@ -312,7 +286,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				075A05732021266200A8324A /* FruitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +293,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				075A057E2021266200A8324A /* FruitUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
