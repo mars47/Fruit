@@ -14,6 +14,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     private var _fruit: Fruit!
+    private var math = Math()
+    private var vc = ViewController()
+    var displayTimeStarted = NSDate()
+    var displayInterval = Double()
     
     var fruit: Fruit {
         
@@ -29,9 +33,21 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
          titleLabel.text = fruit.type
-         priceLabel.text = String (fruit.price)
-         weightLabel.text = String (fruit.weight)
+         priceLabel.text = "£" + math.convertPenceToPounds(fruit.price) + "p"
+         weightLabel.text = math.convertGramsToKilos(fruit.weight) + " Kg"
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        displayTimeStarted = NSDate()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        displayInterval = NSDate().timeIntervalSince(displayTimeStarted as Date)
+        let endpoint = "display&data=" + self.math.convertToMilliSecondsAndString(displayInterval)
+        vc.RecordStat(endpoint, type: 1)
+    }
+    
 
 }

@@ -12,9 +12,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     private var fruit = Fruit()
+    private var math = Math()
+    private var tableviewRefreshControl = RefreshControl()
+    
     var fruitArray = [Fruit]()
     var arrayOfFruitDictionaries = [Dictionary<String, Any>] ()
     
+    var displayTimeStarted = NSDate()
+    var displayInterval = Double()
+    
+    let start = NSDate()
+    var interval = Double()
+    var endpoint = String()
     
 
     override func viewDidLoad() {
@@ -22,11 +31,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
  
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.addSubview(tableviewRefreshControl.returnRefreshControl())
+        downloadJSONData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        displayTimeStarted = NSDate()
+        tableviewRefreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        // Records Display Time
+        displayInterval = NSDate().timeIntervalSince(displayTimeStarted as Date)
+        let endpoint = "display&data=" + self.math.convertToMilliSecondsAndString(displayInterval)
+        RecordStat(endpoint, type: 1)
+    }
+    
+    func downloadJSONData() {
         
         guard let url = URL(string: "https://raw.githubusercontent.com/fmtvp/recruit-test-data/master/data.json") else {
             return
         }
-        
         let session = URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             if let data = data {
@@ -36,10 +64,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     
                     self.arrayOfFruitDictionaries = root["fruit"]!
                     self.fruitArray = self.fruit.makeArrayOfFruitObjects(self.arrayOfFruitDictionaries)
-
+                    
                     DispatchQueue.main.async{
                         self.tableView.reloadData()
                     }
+                    
+                    // Records Network Request time
+                    self.interval = NSDate().timeIntervalSince(self.start as Date)
+                    self.endpoint = "load&data=" + self.math.convertToMilliSecondsAndString(self.interval)
                     
                 } catch {
                     print(error)
@@ -47,16 +79,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
         session.resume()
-        
-
+        RecordStat(endpoint, type: 0)
     }
-
+    
+    func RecordStat (_ Endpoint: String, type: Int){
+        
+        guard let url = URL(string: "https://raw.githubusercontent.com/fmtvp/recruit-test-data/master/stats?event=\(Endpoint)") else {
+            return
+        }
+        var eventRequest = URLRequest(url: url as URL)
+        eventRequest.httpMethod = "GET"
+        let session = URLSession.shared.dataTask(with: eventRequest) { (data, response, error) in
+        }
+        session.resume()
+    }
+    
+        // MARK: - Table view data source ------------------
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "infoTableViewCell", for: indexPath) as? infoTableViewCell {
             
-            print("PRINTING CELL")
             cell.updateUI(fruit: fruitArray[indexPath.row])
             
             return cell
@@ -67,7 +110,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func  tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        let fruit = fruitArray[indexPath.row]
-       // performSegue(withIdentifier: "showDetail", sender: fruit)
         performSegue(withIdentifier: "show", sender: fruit)
     }
     
@@ -79,6 +121,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 120
     }
     
+            // ----------- Table view data source ------------------
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         
         if let destination = segue.destination as? DetailViewController {
@@ -86,6 +130,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 destination.fruit = party
             }
         }
+    }
+    
+  @objc func refresh (refreshControl: UIRefreshControl) {
+        
+        arrayOfFruitDictionaries.removeAll()
+        fruitArray.removeAll()
+        downloadJSONData()
+        tableView.reloadData()
+        refreshControl.endRefreshing()
     }
 }
 
