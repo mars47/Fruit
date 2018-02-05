@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lva-ia-64J">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Fruit List -->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Fruit" customModuleProvider="target" sceneMemberID="viewController">
@@ -56,29 +56,107 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Fruit List " id="k2h-vJ-jhL"/>
                     <connections>
                         <outlet property="tableView" destination="NM5-bn-pQl" id="h1J-32-1lt"/>
-                        <segue destination="pqP-mv-jGf" kind="showDetail" identifier="showDetail" id="mG8-i7-1I8"/>
+                        <segue destination="0iH-ra-Ym0" kind="show" identifier="show" id="BaU-ce-TeA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53.600000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="392.80000000000001" y="133.5832083958021"/>
         </scene>
         <!--Detail View Controller-->
-        <scene sceneID="npj-fw-6uU">
+        <scene sceneID="9bJ-z5-end">
             <objects>
-                <viewController id="pqP-mv-jGf" customClass="DetailViewController" customModule="Fruit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tFQ-74-8Fn">
+                <viewController id="0iH-ra-Ym0" customClass="DetailViewController" customModule="Fruit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3qg-PN-s66">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;title&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptk-UH-xMJ">
+                                <rect key="frame" x="143.5" y="84" width="88" height="33.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="TWe-Io-XVW">
+                                <rect key="frame" x="5" y="157.5" width="365" height="65"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hFe-pv-0hc" userLabel="Titles Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="167.5" height="65"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXQ-Ea-tSq">
+                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="32.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVh-fA-Ei9">
+                                                <rect key="frame" x="0.0" y="32.5" width="167.5" height="32.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="7dY-Sm-zAC" userLabel="Units Stack View">
+                                        <rect key="frame" x="167.5" y="0.0" width="197.5" height="65"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;price&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7Z-sX-5YW">
+                                                <rect key="frame" x="0.0" y="0.0" width="99.5" height="32.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;weight&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpz-nQ-oO9">
+                                                <rect key="frame" x="0.0" y="32.5" width="122" height="32.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="sJY-VO-nZk"/>
+                        <constraints>
+                            <constraint firstItem="ptk-UH-xMJ" firstAttribute="top" secondItem="r5W-2e-NuU" secondAttribute="top" constant="20" id="Bp4-N8-eMV"/>
+                            <constraint firstItem="TWe-Io-XVW" firstAttribute="top" secondItem="ptk-UH-xMJ" secondAttribute="bottom" constant="40" id="OU8-VB-nDU"/>
+                            <constraint firstItem="r5W-2e-NuU" firstAttribute="trailing" secondItem="TWe-Io-XVW" secondAttribute="trailing" constant="5" id="Xub-j3-chl"/>
+                            <constraint firstItem="TWe-Io-XVW" firstAttribute="leading" secondItem="r5W-2e-NuU" secondAttribute="leading" constant="5" id="Y6M-DR-tH5"/>
+                            <constraint firstItem="ptk-UH-xMJ" firstAttribute="centerX" secondItem="3qg-PN-s66" secondAttribute="centerX" id="jCf-v3-TcX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="r5W-2e-NuU"/>
                     </view>
+                    <connections>
+                        <outlet property="priceLabel" destination="h7Z-sX-5YW" id="G7h-hL-qtv"/>
+                        <outlet property="titleLabel" destination="ptk-UH-xMJ" id="Bww-uj-tWX"/>
+                        <outlet property="weightLabel" destination="bpz-nQ-oO9" id="fIG-Ax-jBt"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eQX-Mq-fGN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vzw-tz-2p4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="882" y="134"/>
+            <point key="canvasLocation" x="1223" y="134"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PjM-mR-dOS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lva-ia-64J" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NSx-QT-LVB">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="5ve-Db-RV5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z8S-r3-fzp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-398" y="134"/>
         </scene>
     </scenes>
 </document>
