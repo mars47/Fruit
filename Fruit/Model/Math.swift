@@ -17,13 +17,13 @@ class Math: NSObject {
     }
     
     func convertPenceToPounds (_ pence: Int) -> String {
-
-        return String(format: "%.2f", (Double(pence)/100))
+        let string = String(format: "%.2f", (Double(pence)/100))
+        return "£" + string + "p"
     }
     
     func convertGramsToKilos (_ grams: Int) -> String {
-        
-       return String(format: "%.2f", (Double(grams)/1000))
+        let string = String(format: "%.2f", (Double(grams)/1000))
+       return string + " Kg"
     }
 
 }
