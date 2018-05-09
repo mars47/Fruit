@@ -10,15 +10,17 @@
 		070EBAD12027F2D20060BFDE /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070EBAD02027F2D20060BFDE /* Math.swift */; };
 		070EBAD520288C140060BFDE /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070EBAD420288C140060BFDE /* RefreshControl.swift */; };
 		070EBAD7202CAF790060BFDE /* ViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070EBAD6202CAF790060BFDE /* ViewControllerDataSource.swift */; };
-		070EBADA202CB50E0060BFDE /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070EBAD8202CB50E0060BFDE /* TestCell.swift */; };
-		070EBADB202CB50E0060BFDE /* TestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 070EBAD9202CB50E0060BFDE /* TestCell.xib */; };
 		075A055E2021266200A8324A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075A055D2021266200A8324A /* AppDelegate.swift */; };
 		075A05602021266200A8324A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075A055F2021266200A8324A /* ViewController.swift */; };
 		075A05632021266200A8324A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 075A05612021266200A8324A /* Main.storyboard */; };
 		075A05652021266200A8324A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 075A05642021266200A8324A /* Assets.xcassets */; };
 		075A05682021266200A8324A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 075A05662021266200A8324A /* LaunchScreen.storyboard */; };
-		077822E92031D257008C6C21 /* FruitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077822E82031D257008C6C21 /* FruitController.swift */; };
-		07E3D3EA2022A2710059102A /* infoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3D3E92022A2710059102A /* infoTableViewCell.swift */; };
+		07637C2820A208A600B9E2AD /* DetailsViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07637C2720A208A600B9E2AD /* DetailsViewControllerViewModel.swift */; };
+		07637C2C20A27F4900B9E2AD /* InfoTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07637C2B20A27F4900B9E2AD /* InfoTableViewCellViewModel.swift */; };
+		077822E92031D257008C6C21 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077822E82031D257008C6C21 /* NetworkManager.swift */; };
+		079A4902209B216E0072D36E /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A4901209B216E0072D36E /* Bindable.swift */; };
+		07DCD162206487E200792FC7 /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCD161206487E200792FC7 /* ViewControllerViewModel.swift */; };
+		07E3D3EA2022A2710059102A /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3D3E92022A2710059102A /* InfoTableViewCell.swift */; };
 		07E3D3EC2022A2B70059102A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3D3EB2022A2B70059102A /* DetailViewController.swift */; };
 		07E3D3EE2022E25C0059102A /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3D3ED2022E25C0059102A /* Fruit.swift */; };
 /* End PBXBuildFile section */
@@ -27,8 +29,6 @@
 		070EBAD02027F2D20060BFDE /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		070EBAD420288C140060BFDE /* RefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RefreshControl.swift; path = Fruit/View/RefreshControl.swift; sourceTree = SOURCE_ROOT; };
 		070EBAD6202CAF790060BFDE /* ViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDataSource.swift; sourceTree = "<group>"; };
-		070EBAD8202CB50E0060BFDE /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
-		070EBAD9202CB50E0060BFDE /* TestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
 		075A055A2021266200A8324A /* Fruit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fruit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		075A055D2021266200A8324A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		075A055F2021266200A8324A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,8 +36,12 @@
 		075A05642021266200A8324A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		075A05672021266200A8324A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		075A05692021266200A8324A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		077822E82031D257008C6C21 /* FruitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FruitController.swift; path = Fruit/Controller/FruitController.swift; sourceTree = SOURCE_ROOT; };
-		07E3D3E92022A2710059102A /* infoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoTableViewCell.swift; sourceTree = "<group>"; };
+		07637C2720A208A600B9E2AD /* DetailsViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewControllerViewModel.swift; sourceTree = "<group>"; };
+		07637C2B20A27F4900B9E2AD /* InfoTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfoTableViewCellViewModel.swift; path = "Fruit/View Model/InfoTableViewCellViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		077822E82031D257008C6C21 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = Fruit/Networking/NetworkManager.swift; sourceTree = SOURCE_ROOT; };
+		079A4901209B216E0072D36E /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
+		07DCD161206487E200792FC7 /* ViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerViewModel.swift; sourceTree = "<group>"; };
+		07E3D3E92022A2710059102A /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		07E3D3EB2022A2B70059102A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		07E3D3ED2022E25C0059102A /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07539E9D206A65C0003D6E5A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				077822E82031D257008C6C21 /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		075A05512021266200A8324A = {
 			isa = PBXGroup;
 			children = (
@@ -75,7 +87,10 @@
 				075A055D2021266200A8324A /* AppDelegate.swift */,
 				075A058D20229E9200A8324A /* Model */,
 				075A058C20229E7700A8324A /* View */,
-				075A058B20229E5D00A8324A /* Controller */,
+				075A058B20229E5D00A8324A /* View Model */,
+				079A490320A1AD810072D36E /* DataSource */,
+				0779251F20877F9D005B9AF1 /* Helpers */,
+				07539E9D206A65C0003D6E5A /* Networking */,
 				075A05612021266200A8324A /* Main.storyboard */,
 				075A05642021266200A8324A /* Assets.xcassets */,
 				075A05662021266200A8324A /* LaunchScreen.storyboard */,
@@ -84,23 +99,22 @@
 			path = Fruit;
 			sourceTree = "<group>";
 		};
-		075A058B20229E5D00A8324A /* Controller */ = {
+		075A058B20229E5D00A8324A /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				075A055F2021266200A8324A /* ViewController.swift */,
-				077822E82031D257008C6C21 /* FruitController.swift */,
-				070EBAD6202CAF790060BFDE /* ViewControllerDataSource.swift */,
-				07E3D3EB2022A2B70059102A /* DetailViewController.swift */,
+				07DCD161206487E200792FC7 /* ViewControllerViewModel.swift */,
+				07637C2720A208A600B9E2AD /* DetailsViewControllerViewModel.swift */,
+				07637C2B20A27F4900B9E2AD /* InfoTableViewCellViewModel.swift */,
 			);
-			path = Controller;
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		075A058C20229E7700A8324A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				070EBAD8202CB50E0060BFDE /* TestCell.swift */,
-				070EBAD9202CB50E0060BFDE /* TestCell.xib */,
-				07E3D3E92022A2710059102A /* infoTableViewCell.swift */,
+				075A055F2021266200A8324A /* ViewController.swift */,
+				07E3D3EB2022A2B70059102A /* DetailViewController.swift */,
+				07E3D3E92022A2710059102A /* InfoTableViewCell.swift */,
 				070EBAD420288C140060BFDE /* RefreshControl.swift */,
 			);
 			path = View;
@@ -110,9 +124,25 @@
 			isa = PBXGroup;
 			children = (
 				07E3D3ED2022E25C0059102A /* Fruit.swift */,
-				070EBAD02027F2D20060BFDE /* Math.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0779251F20877F9D005B9AF1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				079A4901209B216E0072D36E /* Bindable.swift */,
+				070EBAD02027F2D20060BFDE /* Math.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		079A490320A1AD810072D36E /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				070EBAD6202CAF790060BFDE /* ViewControllerDataSource.swift */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,7 +205,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				075A05682021266200A8324A /* LaunchScreen.storyboard in Resources */,
-				070EBADB202CB50E0060BFDE /* TestCell.xib in Resources */,
 				075A05652021266200A8324A /* Assets.xcassets in Resources */,
 				075A05632021266200A8324A /* Main.storyboard in Resources */,
 			);
@@ -190,13 +219,16 @@
 			files = (
 				07E3D3EE2022E25C0059102A /* Fruit.swift in Sources */,
 				075A05602021266200A8324A /* ViewController.swift in Sources */,
+				079A4902209B216E0072D36E /* Bindable.swift in Sources */,
 				070EBAD520288C140060BFDE /* RefreshControl.swift in Sources */,
+				07637C2820A208A600B9E2AD /* DetailsViewControllerViewModel.swift in Sources */,
 				070EBAD7202CAF790060BFDE /* ViewControllerDataSource.swift in Sources */,
-				070EBADA202CB50E0060BFDE /* TestCell.swift in Sources */,
 				075A055E2021266200A8324A /* AppDelegate.swift in Sources */,
-				07E3D3EA2022A2710059102A /* infoTableViewCell.swift in Sources */,
+				07E3D3EA2022A2710059102A /* InfoTableViewCell.swift in Sources */,
+				07DCD162206487E200792FC7 /* ViewControllerViewModel.swift in Sources */,
 				07E3D3EC2022A2B70059102A /* DetailViewController.swift in Sources */,
-				077822E92031D257008C6C21 /* FruitController.swift in Sources */,
+				077822E92031D257008C6C21 /* NetworkManager.swift in Sources */,
+				07637C2C20A27F4900B9E2AD /* InfoTableViewCellViewModel.swift in Sources */,
 				070EBAD12027F2D20060BFDE /* Math.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

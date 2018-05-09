@@ -10,6 +10,7 @@ import UIKit
 
 class infoTableViewCell: UITableViewCell {
     
+    var viewModel: InfoTableViewCellViewModel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,8 +18,9 @@ class infoTableViewCell: UITableViewCell {
     }
     @IBOutlet weak var typeLabel: UILabel!
     
-    func updateUI(fruit: Fruit) {
-        typeLabel.text = fruit.type
+    func bind(fruit: Fruit) {
+        
+        viewModel = InfoTableViewCellViewModel(label: fruit.type)
+        typeLabel.text = viewModel.nameLabel.value
     }
-    
 }

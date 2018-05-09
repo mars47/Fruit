@@ -8,12 +8,10 @@
 
 import UIKit
 
-class FruitController: NSObject {
+class NetworkManager: NSObject {
     
-    static var sharedSessionManager = FruitController()
-    
+    static var sharedSessionManager = NetworkManager()
      var fruitArray:[Fruit]? {
-        
         didSet {
             print("Items set: \(fruitArray!.count)")
         }
@@ -22,10 +20,8 @@ class FruitController: NSObject {
     func downloadData(from url: URL, completion: @escaping ([Fruit]) -> ()) {
         
         var array = [Fruit]()
-        
         let session = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            
-            if let data = data {
+        if let data = data {
                 
                 do {
                     let root = try JSONSerialization.jsonObject(with: data, options: []) as! [String: [Dictionary<String, Any>]]
@@ -49,6 +45,7 @@ class FruitController: NSObject {
         for dict in arrayOfFruitDictionaries {
             
             let newFruit = Fruit(initialiseFruitWith: dict)
+           // print("FRUIT TYPE ADDED: \(newFruit.type)")
             fruitArray.append(newFruit)
             
         }
