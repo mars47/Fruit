@@ -10,11 +10,13 @@ import UIKit
 import Foundation
 
 class Fruit: NSObject {
+    //private(set) var types:String!
     
     private var _type: String!
     private var _price: Int!
     private var _weight: Int!
-    
+    private var _fruitArray = [Fruit]()
+
     var type: String {
         return _type
     }
@@ -27,8 +29,21 @@ class Fruit: NSObject {
         return _weight
     }
     
+    var fruitArray: [Fruit] {
+        get {
+            return _fruitArray
+        } set {
+            _fruitArray = newValue
+        }
+    }
+    
     override init() {
         super.init()
+    }
+    
+    init(initWithArray array: [Fruit]) {
+        
+        _fruitArray = array
     }
 
     init(initialiseFruitWith dict: Dictionary<String, Any>) {
@@ -38,18 +53,5 @@ class Fruit: NSObject {
         _weight = dict["weight"] as! Int
     }
     
-    /* iterates through the array of fruit dictionaries, creates and initalises a fruit object on each iteration, then appends each newly created object to an array of type fruit */
-    func makeArrayOfFruitObjects (_ arrayOfFruitDictionaries: [Dictionary<String, Any>]) -> [Fruit] {
-        var fruitArray = [Fruit]()
-        
-        for dict in arrayOfFruitDictionaries {
-            
-            let newFruit = Fruit(initialiseFruitWith: dict)
-            fruitArray.append(newFruit)
-            
-        }
-        
-        return fruitArray
-    }
-
+    
 }
