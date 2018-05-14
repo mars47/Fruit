@@ -10,17 +10,15 @@ import UIKit
 
 class infoTableViewCell: UITableViewCell {
     
-    var viewModel: InfoTableViewCellViewModel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
     @IBOutlet weak var typeLabel: UILabel!
     
-    func bind(fruit: Fruit) {
-        
-        viewModel = InfoTableViewCellViewModel(label: fruit.type)
+    var viewModel: InfoTableViewCellViewModel! {
+        didSet {
+            bind()
+        }
+    }
+    
+    func bind() {
         typeLabel.text = viewModel.nameLabel.value
     }
 }

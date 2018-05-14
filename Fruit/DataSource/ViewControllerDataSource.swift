@@ -23,8 +23,8 @@ class ViewControllerDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "infoTableViewCell", for: indexPath) as? infoTableViewCell {
-            
-            cell.bind(fruit: viewModel.fruitCells.value[indexPath.row])
+        
+            cell.viewModel = InfoTableViewCellViewModel(label: self.viewModel.fruitCells.value[indexPath.row].type)
             return cell
         }
         return UITableViewCell()
