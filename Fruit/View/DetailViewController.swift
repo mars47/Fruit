@@ -29,10 +29,10 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = DetailViewControllerViewModel(fruit: fruit)
-        bind()
+        updateUI()
     }
     
-    func bind() {
+    func updateUI() {
         titleLabel.text = viewModel.nameLabel.value
         priceLabel.text = viewModel.priceLabel.value
         weightLabel.text = viewModel.weightLabel.value

@@ -15,7 +15,6 @@ class Fruit: NSObject {
     private var _type: String!
     private var _price: Int!
     private var _weight: Int!
-    private var _fruitArray = [Fruit]()
 
     var type: String {
         return _type
@@ -29,29 +28,10 @@ class Fruit: NSObject {
         return _weight
     }
     
-    var fruitArray: [Fruit] {
-        get {
-            return _fruitArray
-        } set {
-            _fruitArray = newValue
-        }
-    }
-    
-    override init() {
-        super.init()
-    }
-    
-    init(initWithArray array: [Fruit]) {
-        
-        _fruitArray = array
-    }
-
     init(initialiseFruitWith dict: Dictionary<String, Any>) {
 
         _type = dict["type"] as! String
         _price = dict["price"] as! Int
         _weight = dict["weight"] as! Int
     }
-    
-    
 }

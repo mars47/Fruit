@@ -9,25 +9,19 @@
 import UIKit
 
 class NetworkManager: NSObject {
-    
-    static var sharedSessionManager = NetworkManager()
-     var fruitArray:[Fruit]? {
-        didSet {
-            print("Items set: \(fruitArray!.count)")
-        }
-    }
 
     func downloadData(from url: URL, completion: @escaping ([Fruit]) -> ()) {
         
-        var array = [Fruit]()
+        var newArray = [Fruit]()
         let session = URLSession.shared.dataTask(with: url) { (data, response, error) in
         if let data = data {
                 
                 do {
-                    let root = try JSONSerialization.jsonObject(with: data, options: []) as! [String: [Dictionary<String, Any>]]
-                    
-                    array = self.makeArrayOfFruitObjects(root["fruit"]!)
-                    completion(array)
+                     let root = try JSONSerialization.jsonObject(with: data, options: []) as! [String: [Dictionary<String, Any>]]
+                    guard let array = root["fruit"] else { return }
+
+                    newArray = array.flatMap { Fruit(initialiseFruitWith: $0 ) }
+                    completion(newArray)
                     
                 } catch {
                     print(error)
@@ -36,22 +30,6 @@ class NetworkManager: NSObject {
         }
         session.resume()
     }
-    
-  /* iterates through the array of fruit dictionaries, creates and initalises a fruit object on each iteration, then appends each newly created object to an array of type fruit */
-    
-    func makeArrayOfFruitObjects (_ arrayOfFruitDictionaries: [Dictionary<String, Any>]) -> [Fruit] {
-        var fruitArray = [Fruit]()
-        
-        for dict in arrayOfFruitDictionaries {
-            
-            let newFruit = Fruit(initialiseFruitWith: dict)
-           // print("FRUIT TYPE ADDED: \(newFruit.type)")
-            fruitArray.append(newFruit)
-            
-        }
-        return fruitArray
-    }
-
 }
     
 
